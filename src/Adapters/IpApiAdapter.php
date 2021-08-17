@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Services\IpParser\Adapters;
+namespace Gruzdev\IpParser\Adapters;
 
 
-use App\Services\IpParser\Adapters\Interfaces\ParserAdapterInterface;
+use Gruzdev\IpParser\Adapters\Interfaces\ParserAdapterInterface;
 use Illuminate\Support\Facades\Http;
 
 /**

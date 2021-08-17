@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\IpParser\Interfaces;
+namespace Gruzdev\IpParser\Interfaces;
 
 
 interface IpParserServiceInterface

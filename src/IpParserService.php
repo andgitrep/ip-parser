@@ -1,12 +1,11 @@
 <?php
 
 
-namespace App\Services\IpParser;
+namespace Gruzdev\IpParser;
 
 
-use App\Services\IpParser\Adapters\Interfaces\ParserAdapterInterface;
-use App\Services\IpParser\Interfaces\IpParserServiceInterface;
-use App\Services\IpParser\Repositories\Interfaces\IpParserRepositoryInterface;
+use Gruzdev\IpParser\Adapters\Interfaces\ParserAdapterInterface;
+use Gruzdev\IpParser\Interfaces\IpParserServiceInterface;
 
 class IpParserService implements IpParserServiceInterface
 {
