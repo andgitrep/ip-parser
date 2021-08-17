@@ -3,7 +3,7 @@
     "description": "ip parser",
     "type": "library",
     "require": {
-        "php": ">=7.4",
+        "php": "^7.4",
         "geoip2/geoip2": "~2.0",
         "illuminate/support": "^6|^7|^8"
     },
