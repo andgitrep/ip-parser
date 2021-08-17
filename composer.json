@@ -1,0 +1,21 @@
+{
+    "name": "gruzdev/ip-parser",
+    "description": "ip parser",
+    "type": "library",
+    "require": {
+        "php": ">=7.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Gruzdev\\IpParser\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "andgitrep",
+            "email": "andrew.gruzdev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
