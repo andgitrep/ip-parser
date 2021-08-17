@@ -15,6 +15,9 @@ class IpParserService implements IpParserServiceInterface
      */
     private ParserAdapterInterface $parserAdapter;
 
+    /**
+     * @var string
+     */
     private string $ip;
 
     /**
