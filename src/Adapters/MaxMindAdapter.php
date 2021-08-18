@@ -4,6 +4,7 @@
 namespace Gruzdev\IpParser\Adapters;
 
 
+use GeoIp2\ProviderInterface;
 use Gruzdev\IpParser\Adapters\Interfaces\ParserAdapterInterface;
 use GeoIp2\Database\Reader;
 use GeoIp2\Model\City;
@@ -16,34 +17,21 @@ class MaxMindAdapter implements ParserAdapterInterface
      * @var City
      */
     private City $record;
-    /**
-     * @var string resource_path('maxmind/GeoLite2-City.mmdb')
-     */
-    private string $path;
-
-    /**
-     * MaxMindAdapter constructor.
-     * @param string $path
-     */
-    public function __construct(string $path)
-    {
-
-        $this->path = $path;
-    }
-
 
     /**
      * @param string $ip
+     * @param ProviderInterface $reader
      * @return bool
-     * @throws InvalidDatabaseException
-     * @throws \GeoIp2\Exception\AddressNotFoundException
+     * @throws \Exception
      */
-    public function parse(string $ip): bool
+    public function parse(string $ip, ProviderInterface $reader): bool
     {
-            $reader = new Reader($this->path);
-            $this->record = $reader->city($ip);
+        if (empty($reader)) {
+            throw new \Exception('ProviderInterface $reader must not be null');
+        }
+        $this->record = $reader->city($ip);
 
-            return (bool) $this->record;
+        return (bool) $this->record;
     }
 
     /**

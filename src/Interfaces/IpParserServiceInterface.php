@@ -4,13 +4,16 @@
 namespace Gruzdev\IpParser\Interfaces;
 
 
+use GeoIp2\ProviderInterface;
+
 interface IpParserServiceInterface
 {
     /**
      * @param string $ip
+     * @param ProviderInterface $reader
      * @return bool
      */
-    public function parse(string $ip): bool;
+    public function parse(string $ip, ProviderInterface $reader): bool;
 
     /**
      * @return string

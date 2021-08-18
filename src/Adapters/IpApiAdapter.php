@@ -4,6 +4,7 @@
 namespace Gruzdev\IpParser\Adapters;
 
 
+use GeoIp2\ProviderInterface;
 use Gruzdev\IpParser\Adapters\Interfaces\ParserAdapterInterface;
 use Illuminate\Support\Facades\Http;
 
@@ -26,8 +27,11 @@ class IpApiAdapter implements ParserAdapterInterface
 
     /**
      * @param string $ip
+     * @param ProviderInterface|null $reader
+     * @return bool
+     * @throws \Exception
      */
-    public function parse(string $ip): bool
+    public function parse(string $ip, ProviderInterface $reader = null): bool
     {
             $this->response = HTTP::get(self::URL . $ip)->json();
             if(!($this->response) || $this->response['status'] === "fail") {

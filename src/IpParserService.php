@@ -4,6 +4,7 @@
 namespace Gruzdev\IpParser;
 
 
+use GeoIp2\ProviderInterface;
 use Gruzdev\IpParser\Adapters\Interfaces\ParserAdapterInterface;
 use Gruzdev\IpParser\Interfaces\IpParserServiceInterface;
 
@@ -31,13 +32,14 @@ class IpParserService implements IpParserServiceInterface
 
     /**
      * @param string $ip
+     * @param ProviderInterface $reader
      * @return bool
      */
-    public function parse(string $ip): bool
+    public function parse(string $ip, ProviderInterface $reader = null): bool
     {
         $this->ip = $ip;
         try {
-            $this->parserAdapter->parse($ip);
+            $this->parserAdapter->parse($ip, $reader);
         } catch (\Exception $e) {
             return false;
         }
