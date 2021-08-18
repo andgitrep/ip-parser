@@ -26,9 +26,6 @@ class MaxMindAdapter implements ParserAdapterInterface
      */
     public function parse(string $ip, ProviderInterface $reader): bool
     {
-        if (empty($reader)) {
-            throw new \Exception('ProviderInterface $reader must not be null');
-        }
         $this->record = $reader->city($ip);
 
         return (bool) $this->record;
