@@ -14,6 +14,20 @@ class MaxMindAdapter implements ParserAdapterInterface
 {
 
     /**
+     * @var ProviderInterface
+     */
+    private ProviderInterface $reader;
+
+    /**
+     * MaxMindAdapter constructor.
+     * @param ProviderInterface $reader
+     */
+    public function __construct(ProviderInterface $reader = null)
+    {
+        $this->reader = $reader;
+    }
+
+    /**
      * @var City
      */
     private City $record;
@@ -24,8 +38,12 @@ class MaxMindAdapter implements ParserAdapterInterface
      * @return bool
      * @throws \Exception
      */
-    public function parse(string $ip, ProviderInterface $reader): bool
+    public function parse(string $ip, ProviderInterface $reader = null): bool
     {
+        if (empty($reader)) {
+            $reader = $this->reader;
+        }
+
         $this->record = $reader->city($ip);
 
         return (bool) $this->record;
