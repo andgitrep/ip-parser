@@ -13,6 +13,13 @@
             "Gruzdev\\IpParser\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gruzdev\\IpParser\\ServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "andgitrep",
