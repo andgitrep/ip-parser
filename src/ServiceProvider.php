@@ -16,6 +16,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
+        $configPath = __DIR__ . '/../config/ipparser.php';
+        $this->mergeConfigFrom($configPath, 'ipparser');
+
         $this->app->when(MaxMindAdapter::class)
             ->needs(ProviderInterface::class)
             ->give(function () {
